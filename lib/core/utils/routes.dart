@@ -3,7 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:netflix/features/home/presentation/pages/home_page.dart';
 
 abstract class AppRouter {
-  static const String home = "/Home";
+  static const String home = "/";
 
   static final routes = GoRouter(routes: [
     GoRoute(
