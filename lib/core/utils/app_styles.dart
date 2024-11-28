@@ -1,8 +1,101 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 abstract class AppStyles {
+  static TextStyle textRegular14(context) {
+    return GoogleFonts.inter(
+      fontSize: getResponsiveFontSize(context, fontSize: 14),
+      fontWeight: FontWeight.w400,
+      color: Colors.white,
+    );
+  }
+
+  static TextStyle textRegular18(context) {
+    return GoogleFonts.inter(
+      fontSize: getResponsiveFontSize(context, fontSize: 18),
+      fontWeight: FontWeight.w400,
+      color: const Color(0xffD9D9D9),
+    );
+  }
+
+  static TextStyle textRegular9(context) {
+    return GoogleFonts.inter(
+      fontSize: getResponsiveFontSize(context, fontSize: 9),
+      fontWeight: FontWeight.w400,
+      color: const Color(0xff9A9A9A),
+    );
+  }
+
   static TextStyle textRegular12(context) {
-    return TextStyle();
+    return GoogleFonts.inter(
+      fontSize: getResponsiveFontSize(context, fontSize: 12),
+      fontWeight: FontWeight.w400,
+      color: const Color(0xff9A9A9A),
+    );
+  }
+
+  static TextStyle textRegular16(context) {
+    return GoogleFonts.inter(
+      fontSize: getResponsiveFontSize(context, fontSize: 16),
+      fontWeight: FontWeight.w400,
+      color: Colors.white,
+    );
+  }
+
+  static TextStyle textBold11(context) {
+    return GoogleFonts.inter(
+      fontSize: getResponsiveFontSize(context, fontSize: 11),
+      fontWeight: FontWeight.w700,
+      color: Colors.white,
+    );
+  }
+
+  static TextStyle textSemiBold16(context) {
+    return GoogleFonts.inter(
+      fontSize: getResponsiveFontSize(context, fontSize: 16),
+      fontWeight: FontWeight.w600,
+      color: Colors.white,
+    );
+  }
+
+  static TextStyle textSemiBold18(context) {
+    return GoogleFonts.inter(
+      fontSize: getResponsiveFontSize(context, fontSize: 18),
+      fontWeight: FontWeight.w600,
+      color: Colors.white,
+    );
+  }
+
+  static TextStyle textSemiBold12(context) {
+    return GoogleFonts.inter(
+      fontSize: getResponsiveFontSize(context, fontSize: 12),
+      fontWeight: FontWeight.w600,
+      color: Colors.white,
+    );
+  }
+
+  static TextStyle textSemiBold14(context) {
+    return GoogleFonts.inter(
+      fontSize: getResponsiveFontSize(context, fontSize: 14),
+      fontWeight: FontWeight.w600,
+      color: Colors.white,
+    );
+  }
+
+  static TextStyle textSemiBold9(context) {
+    return GoogleFonts.inter(
+      fontSize: getResponsiveFontSize(context, fontSize: 9),
+      fontWeight: FontWeight.w600,
+      color: Colors.white,
+    );
+  }
+
+  static TextStyle textSemiBold24(context) {
+    return GoogleFonts.inter(
+      fontSize: getResponsiveFontSize(context, fontSize: 24),
+      fontWeight: FontWeight.w600,
+      color: Colors.white,
+    );
   }
 }
 
