@@ -25,7 +25,7 @@ class CustomSearchBar extends StatelessWidget {
             onPressed: () {},
             icon: const Icon(
               Icons.search,
-              size: 36,
+              size: 32,
             ))
       ],
     );

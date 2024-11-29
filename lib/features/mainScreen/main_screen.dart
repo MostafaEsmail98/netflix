@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:netflix/features/home/presentation/pages/home_page.dart';
 import 'package:netflix/features/search/presentation/pages/search_page.dart';
 
-import '../home/presentation/widgets/app_bar_of_home.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -21,7 +20,6 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar.appBarOfHome(context),
       body: pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
           currentIndex: _currentIndex,

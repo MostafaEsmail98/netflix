@@ -4,9 +4,11 @@ import 'package:flutter/material.dart';
 import '../../../../core/utils/app_styles.dart';
 
 class CustomAppBar {
-  static AppBar appBarOfHome(BuildContext context) {
-    return AppBar(
-      toolbarHeight: 40,
+  static SliverAppBar appBarOfHome(BuildContext context) {
+    return SliverAppBar(
+      pinned: true,
+      toolbarHeight: 60,
+      shadowColor: Colors.grey.shade800,
       centerTitle: true,
       title: Text(
         "Netflix",
@@ -15,7 +17,7 @@ class CustomAppBar {
       actions: [
         IconButton(
           onPressed: () {},
-          icon: const Icon(Icons.search),
+          icon: const Icon(Icons.search,size: 24,),
         )
       ],
     );

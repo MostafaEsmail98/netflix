@@ -9,6 +9,7 @@ class SearchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(
+        vertical: MediaQuery.sizeOf(context).height*.015,
           horizontal: MediaQuery.sizeOf(context).width * .02),
       child: const Column(
         children: [
