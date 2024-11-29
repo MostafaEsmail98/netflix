@@ -10,7 +10,7 @@ class AllMoviesRepoImpl extends AllMovieRepo {
   AllMoviesRepoImpl({required this.remoteAllMovie});
 
   @override
-  Future<Either<Failure, AllMoviesEntity>> fetchAllMovies() async{
+  Future<Either<Failure, List<AllMoviesEntity>>> fetchAllMovies() async{
   return await remoteAllMovie.fetchAllMovie() ;
   }
 

@@ -8,7 +8,7 @@ class AllMoviesUseCase {
 
   AllMoviesUseCase({required this.allMovieRepo});
 
-  Future<Either<Failure,AllMoviesEntity>>call()async{
+  Future<Either<Failure,List<AllMoviesEntity>>>call()async{
     return await allMovieRepo.fetchAllMovies();
   }
 }

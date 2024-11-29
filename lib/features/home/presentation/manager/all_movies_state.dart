@@ -5,7 +5,7 @@ class AllMoviesState {}
 final class AllMoviesInitial extends AllMoviesState {}
 final class AllMoviesLoading extends AllMoviesState {}
 final class AllMoviesSuccessful extends AllMoviesState {
-  AllMoviesEntity allMoviesEntity;
+ List <AllMoviesEntity> allMoviesEntity;
 
   AllMoviesSuccessful(this.allMoviesEntity);
 }

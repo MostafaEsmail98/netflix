@@ -5,5 +5,5 @@ import 'package:netflix/features/home/domain/entities/all_movies_entity.dart';
 import '../../../../core/errors/exceptions.dart';
 
 abstract class AllMovieRepo{
-  Future<Either<Failure,AllMoviesEntity>> fetchAllMovies();
+  Future<Either<Failure,List<AllMoviesEntity>>> fetchAllMovies();
 }

@@ -5,8 +5,10 @@ import '../../../../generated/assets.dart';
 
 class MovieItem extends StatelessWidget {
   const MovieItem({
-    super.key,
+    super.key, this.title, this.summary,
   });
+  final String? title  ;
+  final String? summary ;
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +28,11 @@ class MovieItem extends StatelessWidget {
         Expanded(
             child: ListTile(
               title: Text(
-                "File Name",
+                title??"none",
                 style: AppStyles.textSemiBold24(context),
               ),
               subtitle: Text(
-                "data",
+                summary??"none",
                 style: AppStyles.textRegular18(context),
               ),
             ))

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'core/utils/routes.dart';
+import 'core/utils/services_locator.dart';
 
 void main() {
+  setup();
   runApp(const MyApp());
 }
 

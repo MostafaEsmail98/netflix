@@ -12,16 +12,21 @@ class RemoteAllMovieImpl extends RemoteAllMovie{
   RemoteAllMovieImpl({required this.api});
 
   @override
-  Future<Either<Failure, AllMoviesModel>> fetchAllMovie() async{
-   try {
-     var response = await api.get(Endpoints.allMovies) ;
-     return Right(AllMoviesModel.fromJson(response));
-   }  catch (e) {
-     if (e is DioException){
-       return Left(ServerFailure.fromServer(e));
-     }else {
-       return Left(ServerFailure(e.toString()));
-     }
-   }
+  @override
+  Future<Either<Failure, List<AllMoviesModel>>> fetchAllMovie() async {
+    try {
+      var response = await api.get(Endpoints.allMovies);
+      List<AllMoviesModel> movies = (response as List<dynamic>)
+          .map((item) => AllMoviesModel.fromJson(item))
+          .toList();
+      return Right(movies);
+    } catch (e) {
+      if (e is DioException) {
+        return Left(ServerFailure.fromServer(e));
+      } else {
+        return Left(ServerFailure(e.toString()));
+      }
+    }
   }
+
 }
