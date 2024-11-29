@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:netflix/core/utils/app_styles.dart';
+import 'package:netflix/core/utils/custom_space_height.dart';
 import 'package:netflix/features/home/presentation/widgets/app_bar_of_home.dart';
+import '../widgets/list_of_movies.dart';
 import '../widgets/movie_card.dart';
 
 class HomePage extends StatelessWidget {
@@ -9,17 +12,24 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar.appBarOfHome(context),
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: MediaQuery.sizeOf(context).width * .07),
-            child: const MovieCard(),
-          ),
-        ],
+      body: Padding(
+        padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.sizeOf(context).width * .03),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const MovieCard(),
+            Text(
+              "Movies",
+              style: AppStyles.textSemiBold24(context),
+            ),
+            const CustomSpaceHeight(height: .01),
+            const Expanded(
+              child: ListOfMovies(),
+            )
+          ],
+        ),
       ),
     );
   }
 }
-
-
