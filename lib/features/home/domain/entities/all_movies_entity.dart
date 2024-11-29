@@ -4,13 +4,14 @@ class AllMoviesEntity {
   AllMoviesEntity({this.show});
 }
 class ShowEntity {
+  num? id ;
   String? name ;
   ImageEntity? image;
   String? summary ;
   LinksEntity? links;
   String? url;
 
-  ShowEntity({this.name, this.image, this.summary,this.links,this.url});
+  ShowEntity({this.name, this.image, this.summary,this.links,this.url,this.id});
 }
 
 class ImageEntity{

@@ -9,8 +9,9 @@ class ShowEntity {
   String? summary ;
   LinksEntity? links;
   String? url;
+  num? id;
 
-  ShowEntity({this.name, this.image, this.summary,this.links,this.url});
+  ShowEntity({this.name, this.image, this.summary,this.links,this.url,this.id});
 }
 
 class ImageEntity{

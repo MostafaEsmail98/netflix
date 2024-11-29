@@ -1,35 +1,21 @@
-import '../../domain/entities/search_of_movies_entity.dart';
+import 'package:netflix/features/details/domain/entities/details_movie_entity.dart';
 
-class SearchOfMoviesModel extends SearchOfMoviesEntity {
-  SearchOfMoviesModel({
-    this.score,
-    super.show,
-  });
-
-  SearchOfMoviesModel.fromJson(dynamic json) {
-    score = json['score'];
-    show = json['show'] != null ? Show.fromJson(json['show']) : null;
-  }
-
-  num? score;
-}
-
-class Show extends ShowEntity {
-  Show({
+class DetailsMovieModel extends ShowEntity {
+  DetailsMovieModel({
     super.id,
     super.url,
     super.name,
     this.type,
-    this.language,
-    this.genres,
+    super.language,
+    super.genres,
     this.status,
-    this.runtime,
+    super.runtime,
     this.averageRuntime,
-    this.premiered,
+    super.premiered,
     this.ended,
     this.officialSite,
-    this.schedule,
-    this.rating,
+    super.schedule,
+    super.rating,
     this.weight,
     this.network,
     this.webChannel,
@@ -41,7 +27,7 @@ class Show extends ShowEntity {
     super.links,
   });
 
-  Show.fromJson(dynamic json) {
+  DetailsMovieModel.fromJson(dynamic json) {
     id = json['id'];
     url = json['url'];
     name = json['name'];
@@ -71,24 +57,53 @@ class Show extends ShowEntity {
     links = json['_links'] != null ? Links.fromJson(json['_links']) : null;
   }
 
-
   String? type;
-  String? language;
-  List<String>? genres;
+
   String? status;
-  num? runtime;
+
   num? averageRuntime;
-  String? premiered;
+
   dynamic ended;
   String? officialSite;
-  Schedule? schedule;
-  Rating? rating;
+
   num? weight;
   Network? network;
   dynamic webChannel;
   dynamic dvdCountry;
   Externals? externals;
+
   num? updated;
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['id'] = id;
+    map['url'] = url;
+    map['name'] = name;
+    map['type'] = type;
+    map['language'] = language;
+    map['genres'] = genres;
+    map['status'] = status;
+    map['runtime'] = runtime;
+    map['averageRuntime'] = averageRuntime;
+    map['premiered'] = premiered;
+    map['ended'] = ended;
+    map['officialSite'] = officialSite;
+
+    map['weight'] = weight;
+    if (network != null) {
+      map['network'] = network?.toJson();
+    }
+    map['webChannel'] = webChannel;
+    map['dvdCountry'] = dvdCountry;
+    if (externals != null) {
+      map['externals'] = externals?.toJson();
+    }
+
+    map['summary'] = summary;
+    map['updated'] = updated;
+
+    return map;
+  }
 }
 
 class Links extends LinksEntity {
@@ -163,6 +178,12 @@ class Self extends SelfEntity {
 
   Self.fromJson(dynamic json) {
     href = json['href'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['href'] = href;
+    return map;
   }
 }
 
@@ -270,16 +291,14 @@ class Country {
   }
 }
 
-class Rating {
+class Rating extends RatingEntity {
   Rating({
-    this.average,
+    super.average,
   });
 
   Rating.fromJson(dynamic json) {
     average = json['average'];
   }
-
-  num? average;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -288,19 +307,16 @@ class Rating {
   }
 }
 
-class Schedule {
+class Schedule extends ScheduleEntity {
   Schedule({
-    this.time,
-    this.days,
+    super.time,
+    super.days,
   });
 
   Schedule.fromJson(dynamic json) {
     time = json['time'];
     days = json['days'] != null ? json['days'].cast<String>() : [];
   }
-
-  String? time;
-  List<String>? days;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
