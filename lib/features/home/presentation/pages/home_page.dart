@@ -15,18 +15,20 @@ class HomePage extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.sizeOf(context).width * .03),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const MovieCard(),
-            Text(
-              "Movies",
-              style: AppStyles.textSemiBold24(context),
-            ),
-            const CustomSpaceHeight(height: .01),
-            const Expanded(
-              child: ListOfMovies(),
-            )
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                  const MovieCard(),
+                  Text(
+                    "Movies",
+                    style: AppStyles.textSemiBold24(context),
+                  ),
+                  const CustomSpaceHeight(height: .01),
+                ])),
+            const ListOfMovies()
           ],
         ),
       ),
