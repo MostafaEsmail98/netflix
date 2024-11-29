@@ -4,5 +4,5 @@ import 'package:netflix/core/params/params.dart';
 import 'package:netflix/features/search/domain/entities/search_of_movies_entity.dart';
 
 abstract class SearchRepo {
-  Future<Either<Failure,SearchOfMoviesEntity>> getResultOfSearch(SearchParams param);
+  Future<Either<Failure,List<SearchOfMoviesEntity>>> getResultOfSearch(SearchParams params);
 }
