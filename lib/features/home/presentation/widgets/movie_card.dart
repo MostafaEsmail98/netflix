@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:html/parser.dart';
 import 'package:netflix/features/home/domain/entities/all_movies_entity.dart';
+import 'package:netflix/features/home/presentation/manager/all_movies_cubit.dart';
 
 import '../../../../core/utils/app_styles.dart';
 
@@ -25,7 +27,7 @@ class MovieCard extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: const BorderRadius.all(Radius.circular(12)),
                 child: Image.network(
-                  allMoviesEntity.show?.image?.original??"",
+                  allMoviesEntity.show?.image?.original ?? "",
                   errorBuilder: (context, error, stackTrace) =>
                       const Icon(Icons.error),
                 ),
@@ -55,7 +57,9 @@ class MovieCard extends StatelessWidget {
                       color: Colors.white),
                   child: InkWell(
                     onTap: () {
-
+                      context
+                          .read<AllMoviesCubit>()
+                          .launch(allMoviesEntity.show!.url ?? "");
                     },
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
