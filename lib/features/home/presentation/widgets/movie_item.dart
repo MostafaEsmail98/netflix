@@ -1,39 +1,52 @@
 import 'package:flutter/material.dart';
-
+import 'package:html/parser.dart';
 import '../../../../core/utils/app_styles.dart';
-import '../../../../generated/assets.dart';
 
 class MovieItem extends StatelessWidget {
   const MovieItem({
     super.key,
+    this.title,
+    this.summary,
+    this.image,
   });
+
+  final String? title;
+
+  final String? summary;
+
+  final String? image;
 
   @override
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: SizedBox(
-            height: MediaQuery.sizeOf(context).height * .18,
-            child: Image.asset(
-              fit: BoxFit.fill,
-              Assets.imagesSmallImg,
-            ),
+        SizedBox(
+          height: MediaQuery.sizeOf(context).height * .18,
+          width: MediaQuery.sizeOf(context).width *.25,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: Image.network(
+              fit: BoxFit.cover,
+                image ?? "",
+                errorBuilder: (context, error, stackTrace) =>
+                    const Icon(Icons.error),
+              ),
           ),
         ),
         Expanded(
             child: ListTile(
-              title: Text(
-                "File Name",
-                style: AppStyles.textSemiBold24(context),
-              ),
-              subtitle: Text(
-                "data",
-                style: AppStyles.textRegular18(context),
-              ),
-            ))
+          title: Text(
+            title ?? "none",
+            style: AppStyles.textSemiBold24(context),
+          ),
+          subtitle: Text(
+            maxLines: 5,
+            overflow: TextOverflow.ellipsis,
+            parse(summary??"none").body!.text,
+            style: AppStyles.textRegular18(context),
+          ),
+        ))
       ],
     );
   }
