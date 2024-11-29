@@ -15,7 +15,7 @@ class ListOfMovies extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverList.builder(
-      itemCount: allMoviesEntity.length,
+      itemCount: allMoviesEntity.length-1,
       itemBuilder: (context, index) {
         return Padding(
           padding: const EdgeInsets.all(8.0),
@@ -24,8 +24,9 @@ class ListOfMovies extends StatelessWidget {
                 GoRouter.of(context).push(AppRouter.details);
               },
               child: MovieItem(
-                title: allMoviesEntity[index].show?.name,
-                summary: allMoviesEntity[index].show?.summary,
+                image: allMoviesEntity[index+1].show?.image?.medium,
+                title: allMoviesEntity[index+1].show?.name,
+                summary: allMoviesEntity[index+1].show?.summary,
               )),
         );
       },

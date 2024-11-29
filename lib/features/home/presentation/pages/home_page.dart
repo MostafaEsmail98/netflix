@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const MovieCard(),
+                            MovieCard(allMoviesEntity: state.allMoviesEntity[0],),
                             Text(
                               "Movies",
                               style: AppStyles.textSemiBold24(context),

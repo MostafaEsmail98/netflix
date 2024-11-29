@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:html/parser.dart';
+import 'package:netflix/features/home/domain/entities/all_movies_entity.dart';
 
 import '../../../../core/utils/app_styles.dart';
-import '../../../../generated/assets.dart';
 
 class MovieCard extends StatelessWidget {
   const MovieCard({
     super.key,
+    required this.allMoviesEntity,
   });
+
+  final AllMoviesEntity allMoviesEntity;
 
   @override
   Widget build(BuildContext context) {
@@ -19,39 +23,54 @@ class MovieCard extends StatelessWidget {
           children: [
             Card(
               child: ClipRRect(
-                  borderRadius: const BorderRadius.all(Radius.circular(12)),
-                  child: Image.asset(Assets.imagesLargeImage)),
+                borderRadius: const BorderRadius.all(Radius.circular(12)),
+                child: Image.network(
+                  allMoviesEntity.show?.image?.original??"",
+                  errorBuilder: (context, error, stackTrace) =>
+                      const Icon(Icons.error),
+                ),
+              ),
             ),
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  "Film Name",
+                  allMoviesEntity.show?.name ?? "none",
                   style: AppStyles.textBold11(context).copyWith(fontSize: 24),
                 ),
-                Text(
-                  "Summary",
-                  style: AppStyles.textRegular14(context),
+                SizedBox(
+                  width: MediaQuery.sizeOf(context).width * .5,
+                  child: Text(
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    parse(allMoviesEntity.show?.summary ?? "none").body!.text,
+                    style: AppStyles.textRegular18(context),
+                  ),
                 ),
                 Container(
                   width: MediaQuery.sizeOf(context).width * .5,
-                  height: MediaQuery.sizeOf(context).height * .05,
+                  height: MediaQuery.sizeOf(context).height * .04,
                   decoration: const BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(12)),
                       color: Colors.white),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Icon(
-                        Icons.play_arrow,
-                        color: Colors.black,
-                      ),
-                      Text(
-                        "Play",
-                        style: AppStyles.textSemiBold16(context)
-                            .copyWith(color: Colors.black),
-                      )
-                    ],
+                  child: InkWell(
+                    onTap: () {
+
+                    },
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(
+                          Icons.play_arrow,
+                          color: Colors.black,
+                        ),
+                        Text(
+                          "Play",
+                          style: AppStyles.textSemiBold16(context)
+                              .copyWith(color: Colors.black),
+                        )
+                      ],
+                    ),
                   ),
                 )
               ],
