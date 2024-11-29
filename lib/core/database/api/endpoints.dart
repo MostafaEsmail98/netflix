@@ -1,5 +1,5 @@
 class Endpoints {
-  final String endpoint = "paste your url";
+  static const String endpoint = "https://api.tvmaze.com/search/shows?q=";
 }
 
 class ApiKey {
