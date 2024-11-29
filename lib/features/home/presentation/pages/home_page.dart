@@ -4,6 +4,7 @@ import 'package:netflix/core/utils/custom_space_height.dart';
 import '../widgets/list_of_movies.dart';
 import '../widgets/movie_card.dart';
 
+
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
