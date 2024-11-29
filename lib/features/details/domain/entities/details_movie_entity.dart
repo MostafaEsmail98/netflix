@@ -35,7 +35,7 @@ class ShowEntity {
 }
 
 class RatingEntity {
-  String? average;
+  num? average;
 
   RatingEntity({this.average});
 }

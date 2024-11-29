@@ -15,24 +15,21 @@ class ListOfMovies extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverList.builder(
-      itemCount: allMoviesEntity.length-1,
+      itemCount: allMoviesEntity.length - 1,
       itemBuilder: (context, index) {
         return Padding(
           padding: EdgeInsets.symmetric(
-            vertical:  MediaQuery
-                .sizeOf(context)
-                  .height * .005,
-              horizontal: MediaQuery
-                  .sizeOf(context)
-                  .width * .03),
+              vertical: MediaQuery.sizeOf(context).height * .005,
+              horizontal: MediaQuery.sizeOf(context).width * .03),
           child: InkWell(
               onTap: () {
-                GoRouter.of(context).push(AppRouter.details);
+                GoRouter.of(context).push(AppRouter.details,
+                    extra: allMoviesEntity[index+1].show?.id);
               },
               child: MovieItem(
-                image: allMoviesEntity[index+1].show?.image?.medium,
-                title: allMoviesEntity[index+1].show?.name,
-                summary: allMoviesEntity[index+1].show?.summary,
+                image: allMoviesEntity[index + 1].show?.image?.medium,
+                title: allMoviesEntity[index + 1].show?.name,
+                summary: allMoviesEntity[index + 1].show?.summary,
               )),
         );
       },
