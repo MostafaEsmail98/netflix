@@ -32,7 +32,7 @@ class DetailsPage extends StatelessWidget {
                       PlayButton(
                         url: state.showEntity.url!,
                       ),
-                      const DetailsOfFilm()
+                       DetailsOfFilm(showEntity: state.showEntity,)
                     ],
                   ),
                 ),
