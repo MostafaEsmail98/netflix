@@ -2,12 +2,14 @@
 class Assets {
   Assets._();
 
-
+  static const String assetsImagesLargeImage = 'assets/images/large_image.svg';
+  static const String assetsImagesSmallImg = 'assets/images/small_img.svg';
   static const String fontsInter24ptSemiBold = 'assets/fonts/Inter_24pt-SemiBold.ttf';
   static const String fontsInter28ptBold = 'assets/fonts/Inter_28pt-Bold.ttf';
   static const String fontsInter28ptExtraBold = 'assets/fonts/Inter_28pt-ExtraBold.ttf';
   static const String fontsInter28ptRegular = 'assets/fonts/Inter_28pt-Regular.ttf';
   static const String imagesLargeImage = 'assets/images/large_image.png';
+  static const String imagesLogo = 'assets/images/logo.png';
   static const String imagesSmallImg = 'assets/images/small_img.png';
 
 }
