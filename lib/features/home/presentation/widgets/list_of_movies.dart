@@ -18,7 +18,13 @@ class ListOfMovies extends StatelessWidget {
       itemCount: allMoviesEntity.length-1,
       itemBuilder: (context, index) {
         return Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.symmetric(
+            vertical:  MediaQuery
+                .sizeOf(context)
+                  .height * .005,
+              horizontal: MediaQuery
+                  .sizeOf(context)
+                  .width * .03),
           child: InkWell(
               onTap: () {
                 GoRouter.of(context).push(AppRouter.details);

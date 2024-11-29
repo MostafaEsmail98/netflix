@@ -20,28 +20,28 @@ class HomePage extends StatelessWidget {
           if (state is AllMoviesFailure) {
             return Center(child: Text(state.error));
           } else if (state is AllMoviesSuccessful) {
-            return Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: MediaQuery
-                      .sizeOf(context)
-                      .width * .03),
-              child: CustomScrollView(
-                slivers: [
-                  CustomAppBar.appBarOfHome(context),
-                  SliverToBoxAdapter(
-                      child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            MovieCard(allMoviesEntity: state.allMoviesEntity[0],),
-                            Text(
-                              "Movies",
-                              style: AppStyles.textSemiBold24(context),
-                            ),
-                            const CustomSpaceHeight(height: .01),
-                          ])),
-                  ListOfMovies(allMoviesEntity: state.allMoviesEntity)
-                ],
-              ),
+            return CustomScrollView(
+              slivers: [
+                CustomAppBar.appBarOfHome(context),
+                SliverToBoxAdapter(
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                      MovieCard(
+                        allMoviesEntity: state.allMoviesEntity[0],
+                      ),
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: MediaQuery.sizeOf(context).width * .02),
+                        child: Text(
+                          "Movies",
+                          style: AppStyles.textSemiBold24(context),
+                        ),
+                      ),
+                      const CustomSpaceHeight(height: .01),
+                    ])),
+                ListOfMovies(allMoviesEntity: state.allMoviesEntity)
+              ],
             );
           } else {
             return const Center(child: CircularProgressIndicator());
