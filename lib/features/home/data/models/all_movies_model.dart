@@ -18,7 +18,7 @@ class AllMoviesModel extends AllMoviesEntity{
 
 class Show extends ShowEntity{
   Show({
-    this.id,
+    super.id,
     super.url,
     super.name,
     this.type,
@@ -73,7 +73,7 @@ class Show extends ShowEntity{
     links = json['_links'] != null ? Links.fromJson(json['_links']) : null;
   }
 
-  num? id;
+
   String? type;
   String? language;
   List<String>? genres;
