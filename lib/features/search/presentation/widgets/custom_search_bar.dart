@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:netflix/core/utils/app_styles.dart';
+import 'package:netflix/features/search/presentation/manager/search_cubit.dart';
 
 class CustomSearchBar extends StatelessWidget {
   const CustomSearchBar({
@@ -12,6 +14,7 @@ class CustomSearchBar extends StatelessWidget {
       children: [
         Expanded(
           child: TextFormField(
+            controller: context.read<SearchCubit>().typeSearch,
             decoration:  InputDecoration(
               filled: true,
               fillColor: Colors.grey.shade800,
@@ -22,7 +25,9 @@ class CustomSearchBar extends StatelessWidget {
           ),
         ),
         IconButton(
-            onPressed: () {},
+            onPressed: () {
+              context.read<SearchCubit>().getSearchResult();
+            },
             icon: const Icon(
               Icons.search,
               size: 32,

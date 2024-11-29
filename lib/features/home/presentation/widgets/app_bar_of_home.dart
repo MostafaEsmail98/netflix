@@ -1,10 +1,9 @@
 
 import 'package:flutter/material.dart';
-
 import '../../../../core/utils/app_styles.dart';
 
 class CustomAppBar {
-  static SliverAppBar appBarOfHome(BuildContext context) {
+  static SliverAppBar appBarOfHome(BuildContext context, VoidCallback onSearchPressed) {
     return SliverAppBar(
       pinned: true,
       toolbarHeight: 60,
@@ -16,7 +15,9 @@ class CustomAppBar {
       ),
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            onSearchPressed();
+          },
           icon: const Icon(Icons.search,size: 24,),
         )
       ],

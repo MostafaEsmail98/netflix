@@ -9,7 +9,8 @@ import '../widgets/list_of_movies.dart';
 import '../widgets/movie_card.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  const HomePage({super.key, required this.onSearchPressed});
+  final VoidCallback onSearchPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class HomePage extends StatelessWidget {
           } else if (state is AllMoviesSuccessful) {
             return CustomScrollView(
               slivers: [
-                CustomAppBar.appBarOfHome(context),
+                CustomAppBar.appBarOfHome(context,onSearchPressed),
                 SliverToBoxAdapter(
                     child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
