@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:netflix/features/home/presentation/pages/home_page.dart';
+import 'package:netflix/features/search/presentation/pages/search_page.dart';
 
 import '../home/presentation/widgets/app_bar_of_home.dart';
 
@@ -14,7 +15,7 @@ class _MainScreenState extends State<MainScreen> {
   int _currentIndex = 0;
   List<Widget> pages = [
     const HomePage(),
-    const SizedBox()
+    const SearchPage()
   ];
 
   @override
